@@ -1,0 +1,369 @@
+---
+// RecepcionSocial2.astro
+---
+
+<section class="relative w-full py-8 px-6">
+    <!-- ═══ PRIMERA CAPA (ABAJO): Hojas Doradas ═══ -->
+    <img
+        src="/imagenes/hojadorada.png"
+        alt="hoja dorada"
+        class="absolute left-0 top-20 md:top-24 w-18 h-18 lg:w-28 lg:h-28 md:w-20 md:h-20 opacity-0 pointer-events-none z-10"
+        id="hoja-dorada-recepcion2-left"
+    />
+    <img
+        src="/imagenes/hojadorada.png"
+        alt="hoja dorada"
+        class="absolute right-0 top-20 md:top-24 w-18 h-18 lg:w-28 lg:h-28 md:w-20 md:h-20 opacity-0 pointer-events-none z-10 scale-x-[-1]"
+        id="hoja-dorada-recepcion2-right"
+    />
+
+    <!-- ═══ SEGUNDA CAPA (ENCIMA): Flores Laterales ═══ -->
+    <img
+        src="/imagenes/florlateral.png"
+        alt="hojas"
+        class="absolute left-0 top-24 md:top-24 w-18 h-18 lg:w-28 lg:h-28 md:w-20 md:h-20 opacity-0 pointer-events-none z-[11]"
+        id="hoja-recepcion2-left"
+    />
+    <img
+        src="/imagenes/florlateral.png"
+        alt="hojas"
+        class="absolute right-0 top-24 md:top-24 w-18 h-18 lg:w-28 lg:h-28 md:w-20 md:h-20 opacity-0 pointer-events-none z-[11] scale-x-[-1]"
+        id="hoja-recepcion2-right"
+    />
+
+    <!-- ═════════════════════════════════════════════════════════════ -->
+    <!-- 📦 CONTENEDOR PRINCIPAL                                        -->
+    <!-- ═════════════════════════════════════════════════════════════ -->
+    <div class="max-w-md mx-auto" id="wrapper-recepcion2">
+        <div class="text-center opacity-0" id="recepcion2-content">
+            <!-- Título -->
+            <h3
+                class="text-[#9C7A2E] tracking-[0.2em] uppercase text-xl md:text-2xl lg:text-2xl xl:text-3xl font-semibold mb-6"
+            >
+                Recepción Social
+            </h3>
+
+            <!-- Icono Salón/Arco -->
+            <div class="flex justify-center mb-6">
+                <img
+                    src="/iconos/recepcion.png"
+                    alt="Icono Recepción"
+                    class="w-16 h-16 md:w-20 md:h-20 object-contain dorado-filter"
+                    id="icono-recepcion2"
+                />
+            </div>
+
+            <!-- Nombre del Salón -->
+            <p
+                class="font-charm text-[#0F3D2E] text-2xl md:text-3xl lg:text-3xl xl:text-4xl mb-3"
+            >
+                Salon Mega Eventos "Cultural Paceña"
+            </p>
+
+            <!-- Dirección -->
+            <p class="text-[#0F3D2E]/70 text-xl md:text-2xl mb-6">
+                Zona 16 de Julio, calle Nery <br /> N° 3225 entre calles Alvarz Plata
+                y Nistahuas
+            </p>
+
+            <!-- Hora y Botón -->
+            <div class="flex items-center justify-center gap-3 relative">
+                <!-- Recuadro de Hora -->
+                <div
+                    class="bg-transparent border-2 border-gray-400 rounded px-6 py-2.5"
+                >
+                    <p class="text-sm md:text-2xl text-[#0F3D2E] font-semibold">
+                        14:00 HRS.
+                    </p>
+                </div>
+
+                <!-- Botón Ubicación con MANO -->
+                <div class="relative">
+                    <a
+                        href="https://maps.app.goo.gl/d7GDvDdsksgw8jtM9"
+                        target="_blank"
+                        class="bg-[#4E5F49] hover:bg-[#3d4a39]
+                    text-white px-6 py-2.5 rounded text-sm md:text-base
+                    lg:text-lg xl:text-xl font-semibold transition-all
+                    duration-300 shadow-md hover:shadow-lg block"
+                        id="boton-recepcion2"
+                    >
+                        Ver ubicación
+                    </a>
+
+                    <!-- MANO apuntando al botón -->
+                    <img
+                        src="/imagenes/mano.png"
+                        alt="Presionar aquí"
+                        class="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 lg:-bottom-10 lg:-right-10 w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 object-contain opacity-0 pointer-events-none z-20"
+                        id="mano-recepcion2-pointer"
+                    />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <!-- 🎬 ANIMACIONES CON GSAP                                     -->
+    <!-- ═══════════════════════════════════════════════════════════ -->
+    <script>
+        import { gsap } from "gsap";
+        import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+        gsap.registerPlugin(ScrollTrigger);
+
+        const initRecepcionSocial2 = () => {
+            console.log("🎉 Iniciando componente Recepción Social 2...");
+
+            gsap.set("#recepcion2-content", { opacity: 0, y: 30 });
+
+            gsap.set("#hoja-recepcion2-left", {
+                opacity: 0,
+                x: -20,
+                rotation: 0,
+                scale: 1,
+            });
+            gsap.set("#hoja-recepcion2-right", {
+                opacity: 0,
+                x: 20,
+                rotation: 0,
+                scaleX: -1,
+                scaleY: 1,
+            });
+
+            gsap.set("#hoja-dorada-recepcion2-left", {
+                opacity: 0,
+                x: -20,
+                rotation: 0,
+                scale: 1,
+            });
+            gsap.set("#hoja-dorada-recepcion2-right", {
+                opacity: 0,
+                x: 20,
+                rotation: 0,
+                scaleX: -1,
+                scaleY: 1,
+            });
+
+            gsap.set("#mano-recepcion2-pointer", { opacity: 0, scale: 0.8 });
+
+            ScrollTrigger.create({
+                trigger: "#wrapper-recepcion2",
+                start: "top 80%",
+                end: "top 20%",
+
+                onEnter: () => {
+                    const tl = gsap.timeline();
+
+                    tl.to(
+                        "#recepcion2-content",
+                        { opacity: 1, y: 0, duration: 1.2, ease: "power3.out" },
+                        0,
+                    )
+                        .to(
+                            "#hoja-recepcion2-left",
+                            {
+                                opacity: 0.8,
+                                x: 0,
+                                duration: 1,
+                                ease: "power2.out",
+                            },
+                            0.5,
+                        )
+                        .to(
+                            "#hoja-recepcion2-right",
+                            {
+                                opacity: 0.8,
+                                x: 0,
+                                duration: 1,
+                                ease: "power2.out",
+                            },
+                            0.5,
+                        )
+                        .to(
+                            "#hoja-dorada-recepcion2-left",
+                            {
+                                opacity: 0.9,
+                                x: 0,
+                                duration: 1,
+                                ease: "power2.out",
+                            },
+                            1.5,
+                        )
+                        .to(
+                            "#hoja-dorada-recepcion2-right",
+                            {
+                                opacity: 0.9,
+                                x: 0,
+                                duration: 1,
+                                ease: "power2.out",
+                            },
+                            1.5,
+                        )
+                        .to(
+                            "#mano-recepcion2-pointer",
+                            {
+                                opacity: 1,
+                                scale: 1,
+                                duration: 0.5,
+                                ease: "back.out(2)",
+                            },
+                            0.5,
+                        );
+
+                    gsap.to("#hoja-recepcion2-left", {
+                        y: -10,
+                        x: -5,
+                        rotation: -8,
+                        duration: 3.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 2.5,
+                    });
+                    gsap.to("#hoja-recepcion2-right", {
+                        y: -8,
+                        x: 5,
+                        rotation: 8,
+                        duration: 3.8,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 2.7,
+                    });
+                    gsap.to("#hoja-dorada-recepcion2-left", {
+                        y: -12,
+                        rotation: -10,
+                        duration: 4,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 2.8,
+                    });
+                    gsap.to("#hoja-dorada-recepcion2-right", {
+                        y: -11,
+                        rotation: 10,
+                        duration: 4.3,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 3,
+                    });
+                    gsap.to("#hoja-dorada-recepcion2-left", {
+                        scale: 0.85,
+                        duration: 4.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 3.2,
+                    });
+                    gsap.to("#hoja-dorada-recepcion2-right", {
+                        scaleX: -0.85,
+                        scaleY: 0.85,
+                        duration: 5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 3.5,
+                    });
+                    gsap.to("#hoja-recepcion2-left", {
+                        x: -8,
+                        duration: 5.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 3.8,
+                    });
+                    gsap.to("#hoja-recepcion2-right", {
+                        x: 8,
+                        duration: 6,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 4,
+                    });
+                    gsap.to("#mano-recepcion2-pointer", {
+                        scale: 0.9,
+                        duration: 0.6,
+                        ease: "power1.inOut",
+                        repeat: -1,
+                        yoyo: true,
+                        delay: 3,
+                    });
+                },
+
+                onLeaveBack: () => {
+                    gsap.killTweensOf("#mano-recepcion2-pointer");
+                    gsap.killTweensOf("#hoja-recepcion2-left");
+                    gsap.killTweensOf("#hoja-recepcion2-right");
+                    gsap.killTweensOf("#hoja-dorada-recepcion2-left");
+                    gsap.killTweensOf("#hoja-dorada-recepcion2-right");
+
+                    const tl = gsap.timeline();
+
+                    tl.to(
+                        "#recepcion2-content, #hoja-recepcion2-left, #hoja-recepcion2-right, #hoja-dorada-recepcion2-left, #hoja-dorada-recepcion2-right, #mano-recepcion2-pointer",
+                        { opacity: 0, duration: 0.5, ease: "power2.in" },
+                    )
+                        .to(
+                            "#recepcion2-content",
+                            { y: 30, duration: 0.5, ease: "power2.in" },
+                            "<",
+                        )
+                        .to(
+                            "#hoja-recepcion2-left",
+                            { x: -20, y: 0, duration: 0.5, ease: "power2.in" },
+                            "<",
+                        )
+                        .to(
+                            "#hoja-recepcion2-right",
+                            { x: 20, y: 0, duration: 0.5, ease: "power2.in" },
+                            "<",
+                        )
+                        .to(
+                            "#hoja-dorada-recepcion2-left",
+                            { x: -20, y: 0, duration: 0.5, ease: "power2.in" },
+                            "<",
+                        )
+                        .to(
+                            "#hoja-dorada-recepcion2-right",
+                            { x: 20, y: 0, duration: 0.5, ease: "power2.in" },
+                            "<",
+                        )
+                        .to(
+                            "#mano-recepcion2-pointer",
+                            { scale: 0.8, duration: 0.5, ease: "power2.in" },
+                            "<",
+                        )
+                        .set("#hoja-recepcion2-left", { rotation: 0, scale: 1 })
+                        .set("#hoja-recepcion2-right", {
+                            rotation: 0,
+                            scaleX: -1,
+                            scaleY: 1,
+                        })
+                        .set("#hoja-dorada-recepcion2-left", {
+                            rotation: 0,
+                            scale: 1,
+                        })
+                        .set("#hoja-dorada-recepcion2-right", {
+                            rotation: 0,
+                            scaleX: -1,
+                            scaleY: 1,
+                        });
+                },
+            });
+
+            console.log("🎉✨ Recepción Social 2 activada!");
+        };
+
+        document.addEventListener("DOMContentLoaded", initRecepcionSocial2);
+        document.addEventListener("astro:page-load", initRecepcionSocial2);
+    </script>
+
+    <style>
+        .dorado-filter {
+            filter: brightness(0) saturate(100%) invert(56%) sepia(77%)
+                saturate(419%) hue-rotate(5deg) brightness(94%) contrast(92%);
+        }
+    </style>
+</section>

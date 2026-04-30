@@ -1,0 +1,413 @@
+<!-- ═══════════════════════════════════════════════════════════ --><!-- 📅 COMPONENTE FECHA2 - SEGUNDO DÍA DE FIESTA              --><!-- ═══════════════════════════════════════════════════════════ -->
+<section class="relative w-full py-2 md:py-10 px-4">
+    <!-- ═════════════════════════════════════════════════════════════ -->
+    <!-- 🌸 HOJAS DECORATIVAS - Pegadas a los bordes de la pantalla    -->
+    <!-- ═════════════════════════════════════════════════════════════ -->
+
+    <!-- ═══ PRIMERA CAPA (ABAJO): Hojas Doradas ═══ -->
+
+    <!-- Hoja dorada izquierda -->
+    <img
+        src="/imagenes/hojadorada.png"
+        alt="hoja dorada"
+        class="absolute left-0 top-1/2 -translate-y-1/2 w-18 lg:w-28 h-18 md:w-20 md:h-20 opacity-0 pointer-events-none z-10"
+        id="hoja-dorada-fecha2-izq"
+    />
+
+    <!-- Hoja dorada derecha (volteada horizontalmente) -->
+    <img
+        src="/imagenes/hojadorada.png"
+        alt="hoja dorada"
+        class="absolute right-0 top-1/2 -translate-y-1/2 w-18 lg:w-28 h-18 md:w-20 md:h-20 opacity-0 pointer-events-none z-10 scale-x-[-1]"
+        id="hoja-dorada-fecha2-der"
+    />
+
+    <!-- ═══ SEGUNDA CAPA (ENCIMA): Flores Laterales ═══ -->
+
+    <!-- Hoja lateral izquierda -->
+    <img
+        src="/imagenes/florlateral.png"
+        alt="Hoja izquierda"
+        class="absolute left-0 top-1/2 -translate-y-1/2 w-18 lg:w-28 h-18 lg:h-28 md:w-20 md:h-20 opacity-0 pointer-events-none z-[11]"
+        id="hoja-fecha2-izq"
+    />
+
+    <!-- Hoja lateral derecha (volteada horizontalmente) -->
+    <img
+        src="/imagenes/florlateral.png"
+        alt="Hoja derecha"
+        class="absolute right-0 top-1/2 -translate-y-1/2 w-18 lg:w-28 h-18 lg:h-28 md:w-20 md:h-20 opacity-0 pointer-events-none z-[11] scale-x-[-1]"
+        id="hoja-fecha2-der"
+    />
+
+    <!-- CONTENEDOR PRINCIPAL -->
+    <div class="max-w-2xl mx-auto text-center relative">
+        <!-- 💍 Texto segundo día -->
+        <div class="mb-6 px-4" id="texto-invitacion2-container">
+            <div id="texto-invitacion2"
+                style="border: 1.5px solid #9C7A2E; border-radius: 12px; padding: 1.5rem 1.75rem;"
+            >
+                <p class="font-charm font-bold text-xl md:text-4xl lg:text-5xl text-[#0F3D2E] leading-relaxed text-center">
+                    De la misma forma, tenemos el agrado<br />
+                    de invitarles a acompañarnos<br />
+                    al segundo día de fiesta<br />
+                    en el mismo salón.
+                </p>
+            </div>
+        </div>
+
+        <!-- Año 2026 ARRIBA -->
+        <div class="mb-4 flex justify-center" id="anio-evento2">
+            <p class="font-charm text-3xl md:text-4xl text-[#0F3D2E] font-bold">
+                2026
+            </p>
+        </div>
+
+        <!-- 📅 Fecha con líneas arriba y abajo -->
+        <div class="relative max-w-md mx-auto" id="fecha-evento2">
+            <div class="flex items-center justify-center gap-4 md:gap-16">
+                <!-- DOMINGO con líneas arriba y abajo -->
+                <div class="flex flex-col items-center w-24 md:w-28">
+                    <div class="w-full h-px bg-[#9C7A2E] mb-2"></div>
+                    <span
+                        class="font-charm text-lg md:text-3xl text-[#0F3D2E] uppercase tracking-wider font-bold text-center"
+                    >
+                        DOMINGO
+                    </span>
+                    <div class="w-full h-px bg-[#9C7A2E] mt-2"></div>
+                </div>
+
+                <!-- Número 31 - CENTRADO -->
+                <div
+                    class="flex items-center justify-center min-w-[80px] md:min-w-[100px]"
+                >
+                    <span
+                        class="font-charm text-7xl md:text-8xl text-[#9C7A2E] font-bold"
+                    >
+                        31
+                    </span>
+                </div>
+
+                <!-- MAYO con líneas arriba y abajo -->
+                <div class="flex flex-col items-center w-24 md:w-28">
+                    <div class="w-full h-px bg-[#9C7A2E] mb-2"></div>
+                    <span
+                        class="font-charm text-lg md:text-3xl text-[#0F3D2E] uppercase tracking-wider font-bold text-center"
+                    >
+                        MAYO
+                    </span>
+                    <div class="w-full h-px bg-[#9C7A2E] mt-2"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- 🎬 ANIMACIONES CON GSAP - ANIMACIÓN DE ENTRADA MEJORADA     -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<script>
+    import { gsap } from "gsap";
+    import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    if (typeof window !== "undefined") {
+        document.addEventListener("DOMContentLoaded", () => {
+            console.log("📅 Iniciando animaciones de fecha2...");
+
+            // 🎯 ESTADO INICIAL
+
+            // Flores laterales (ENCIMA)
+            gsap.set("#hoja-fecha2-izq", {
+                opacity: 0,
+                x: -40,
+                y: 20,
+                rotation: -15,
+                scale: 0.8,
+            });
+            gsap.set("#hoja-fecha2-der", {
+                opacity: 0,
+                x: 40,
+                y: 20,
+                rotation: 15,
+                scaleX: -0.8,
+                scaleY: 0.8,
+            });
+
+            // Hojas doradas (ABAJO)
+            gsap.set("#hoja-dorada-fecha2-izq", {
+                opacity: 0,
+                x: -50,
+                y: 25,
+                rotation: -20,
+                scale: 0.7,
+            });
+            gsap.set("#hoja-dorada-fecha2-der", {
+                opacity: 0,
+                x: 50,
+                y: 25,
+                rotation: 20,
+                scaleX: -0.7,
+                scaleY: 0.7,
+            });
+
+            gsap.set("#texto-invitacion2", { opacity: 0, x: -30, y: 15 });
+            gsap.set("#anio-evento2", { opacity: 0, x: 30, y: 15 });
+            gsap.set("#fecha-evento2", { opacity: 0, x: -30, y: 15 });
+
+            // ✨ ANIMACIÓN DE ENTRADA
+            ScrollTrigger.create({
+                trigger: "#texto-invitacion2-container",
+                start: "top bottom",
+                end: "top 20%",
+
+                onEnter: () => {
+                    const tl = gsap.timeline();
+
+                    tl.to(
+                        "#texto-invitacion2",
+                        {
+                            opacity: 1,
+                            x: 0,
+                            y: 0,
+                            duration: 1.2,
+                            ease: "power2.out",
+                        },
+                        0.8,
+                    )
+                        .to(
+                            "#anio-evento2",
+                            {
+                                opacity: 1,
+                                x: 0,
+                                y: 0,
+                                duration: 1.2,
+                                ease: "power2.out",
+                            },
+                            1.1,
+                        )
+                        .to(
+                            "#fecha-evento2",
+                            {
+                                opacity: 1,
+                                x: 0,
+                                y: 0,
+                                duration: 1.2,
+                                ease: "power2.out",
+                            },
+                            1.4,
+                        )
+                        .to(
+                            "#hoja-fecha2-izq",
+                            {
+                                opacity: 0.8,
+                                x: 0,
+                                y: 0,
+                                rotation: 0,
+                                scale: 1,
+                                duration: 1.8,
+                                ease: "power1.out",
+                            },
+                            2.0,
+                        )
+                        .to(
+                            "#hoja-fecha2-der",
+                            {
+                                opacity: 0.8,
+                                x: 0,
+                                y: 0,
+                                rotation: 0,
+                                scaleX: -1,
+                                scaleY: 1,
+                                duration: 1.8,
+                                ease: "power1.out",
+                            },
+                            2.1,
+                        )
+                        .to(
+                            "#hoja-dorada-fecha2-izq",
+                            {
+                                opacity: 0.9,
+                                x: 0,
+                                y: 0,
+                                rotation: 0,
+                                scale: 1,
+                                duration: 2,
+                                ease: "power1.out",
+                            },
+                            2.3,
+                        )
+                        .to(
+                            "#hoja-dorada-fecha2-der",
+                            {
+                                opacity: 0.9,
+                                x: 0,
+                                y: 0,
+                                rotation: 0,
+                                scaleX: -1,
+                                scaleY: 1,
+                                duration: 2,
+                                ease: "power1.out",
+                            },
+                            2.4,
+                        );
+
+                    gsap.to("#hoja-fecha2-izq", {
+                        y: -10,
+                        x: -5,
+                        rotation: -8,
+                        duration: 3.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 3.3,
+                    });
+                    gsap.to("#hoja-fecha2-der", {
+                        y: -8,
+                        x: 5,
+                        rotation: 8,
+                        duration: 3.8,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 3.5,
+                    });
+                    gsap.to("#hoja-dorada-fecha2-izq", {
+                        y: -12,
+                        rotation: -10,
+                        duration: 4,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 3.8,
+                    });
+                    gsap.to("#hoja-dorada-fecha2-der", {
+                        y: -11,
+                        rotation: 10,
+                        duration: 4.3,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 4,
+                    });
+                    gsap.to("#hoja-dorada-fecha2-izq", {
+                        scale: 0.85,
+                        duration: 4.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 4.2,
+                    });
+                    gsap.to("#hoja-dorada-fecha2-der", {
+                        scaleX: -0.85,
+                        scaleY: 0.85,
+                        duration: 5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 4.5,
+                    });
+                    gsap.to("#hoja-fecha2-izq", {
+                        x: -8,
+                        duration: 5.5,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 4.8,
+                    });
+                    gsap.to("#hoja-fecha2-der", {
+                        x: 8,
+                        duration: 6,
+                        repeat: -1,
+                        yoyo: true,
+                        ease: "sine.inOut",
+                        delay: 5,
+                    });
+                },
+
+                onLeaveBack: () => {
+                    gsap.killTweensOf("#hoja-fecha2-izq");
+                    gsap.killTweensOf("#hoja-fecha2-der");
+                    gsap.killTweensOf("#hoja-dorada-fecha2-izq");
+                    gsap.killTweensOf("#hoja-dorada-fecha2-der");
+
+                    const tl = gsap.timeline();
+
+                    tl.to(
+                        "#hoja-fecha2-izq, #hoja-fecha2-der, #hoja-dorada-fecha2-izq, #hoja-dorada-fecha2-der, #texto-invitacion2, #anio-evento2, #fecha-evento2",
+                        { opacity: 0, duration: 0.5, ease: "power2.in" },
+                    )
+                        .to(
+                            "#texto-invitacion2",
+                            { x: -30, y: 15, duration: 0.6, ease: "power2.in" },
+                            "<",
+                        )
+                        .to(
+                            "#anio-evento2",
+                            { x: 30, y: 15, duration: 0.6, ease: "power2.in" },
+                            "<",
+                        )
+                        .to(
+                            "#fecha-evento2",
+                            { x: -30, y: 15, duration: 0.6, ease: "power2.in" },
+                            "<",
+                        )
+                        .to(
+                            "#hoja-fecha2-izq",
+                            {
+                                x: -40,
+                                y: 20,
+                                rotation: -15,
+                                scale: 0.8,
+                                duration: 0.6,
+                                ease: "power2.in",
+                            },
+                            "<",
+                        )
+                        .to(
+                            "#hoja-fecha2-der",
+                            {
+                                x: 40,
+                                y: 20,
+                                rotation: 15,
+                                scaleX: -0.8,
+                                scaleY: 0.8,
+                                duration: 0.6,
+                                ease: "power2.in",
+                            },
+                            "<",
+                        )
+                        .to(
+                            "#hoja-dorada-fecha2-izq",
+                            {
+                                x: -50,
+                                y: 25,
+                                rotation: -20,
+                                scale: 0.7,
+                                duration: 0.6,
+                                ease: "power2.in",
+                            },
+                            "<",
+                        )
+                        .to(
+                            "#hoja-dorada-fecha2-der",
+                            {
+                                x: 50,
+                                y: 25,
+                                rotation: 20,
+                                scaleX: -0.7,
+                                scaleY: 0.7,
+                                duration: 0.6,
+                                ease: "power2.in",
+                            },
+                            "<",
+                        );
+                },
+            });
+
+            console.log("✨ Animaciones fecha2 listas!");
+        });
+    }
+</script>
